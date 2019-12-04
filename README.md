@@ -22,16 +22,26 @@ docker-compose -f config/<archiecture-file>.yml up -d
 
 Run the following command to **teardown the infrastructure**:
 ```
-docker-compose -f config/<archiecture-file>.yml up -d
+docker-compose -f config/<archiecture-file>.yml down -d
 ```
 
 ### Starting & stopping specific components
-Starting:
+Starting everything:
+```
+docker-compose -f config/<archiecture-file>.yml start
+```
+
+Starting only a service:
 ```
 docker-compose -f config/<archiecture-file>.yml start <service_name>
 ```
 
-Stopping:
+Stopping everything:
+```
+docker-compose -f config/<archiecture-file>.yml stop
+```
+
+Stopping only a service:
 ```
 docker-compose -f config/<archiecture-file>.yml stop <service_name>
 ```
