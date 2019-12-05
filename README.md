@@ -5,43 +5,54 @@ Basic Docker configurations to test different architectures easily.
 
 The following architectures are defined in docker-compose:
 
-|  Name  | File   | Description  | Components |
+|  Name  | Folder   | Description  | Components |
 | :------------ | :------------ | :------------ | :------------ |
-|   CDC Kafka |  mysql-cdc-kafka.yml |  CDC-like using Kafka Connect (JDBC)  | MySQL, Adminer DB Manager, and Full Kafka Stack |
-|  Metabase | mysql-metabase.yml  | Metabase installation with MySQL as storage  | MySQL, Adminer DB Manager, and Metabase |
-| Prometheus/Grafana | prometheus-grafana.yml | Test Prometheus/Grafana architecture agains docker monitor | Prometheus (with Alert Manager and Node Exporter), Grafana and cAdvisor |
+|   CDC Kafka |  mysql-cdc-kafka |  CDC-like using Kafka Connect (JDBC)  | MySQL, Adminer DB Manager, and Full Kafka Stack |
+|  Metabase | mysql-metabase  | Metabase installation with MySQL as storage  | MySQL, Adminer DB Manager, and Metabase |
+| Prometheus/Grafana | prometheus-grafana | Test Prometheus/Grafana architecture agains docker monitor | Prometheus (with Alert Manager and Node Exporter), Grafana and cAdvisor |
 
 ## Running
 
 ### Setup and tear down
 
+Enter the desired architecture folder:
+```
+cd <architecture-folder>
+```
+
 Run the following command to **setup the infrastructure**:
 ```
-docker-compose -f config/<archiecture-file>.yml up -d
+docker-compose up -d
 ```
 
 Run the following command to **teardown the infrastructure**:
 ```
-docker-compose -f config/<archiecture-file>.yml down -d
+docker-compose down -d
 ```
 
 ### Starting & stopping specific components
+
+Enter the desired architecture folder:
+```
+cd <architecture-folder>
+```
+
 Starting everything:
 ```
-docker-compose -f config/<archiecture-file>.yml start
+docker-compose start
 ```
 
 Starting only a service:
 ```
-docker-compose -f config/<archiecture-file>.yml start <service_name>
+docker-compose start <service_name>
 ```
 
 Stopping everything:
 ```
-docker-compose -f config/<archiecture-file>.yml stop
+docker-compose stop
 ```
 
 Stopping only a service:
 ```
-docker-compose -f config/<archiecture-file>.yml stop <service_name>
+docker-compose stop <service_name>
 ```
